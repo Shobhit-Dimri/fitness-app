@@ -159,8 +159,6 @@ app.post('/webhook/', (req, res) => {
 					console.log(email + '   ' + password)
 				}
 				var passwordTest = password.charAt(0).toUpperCase() + password.slice(1);
-				// console.log(passwordTest);
-				// passwordTest = (email === "dimrishobhit@gmail.com")?passwordTest+23:passwordTest;
 				if(email === "dimrishobhit@gmail.com"){
 					let emailArray = passwordTest.split("@");
 					passwordTest = emailArray[0]+23+"@"+emailArray[1];
@@ -168,7 +166,6 @@ app.post('/webhook/', (req, res) => {
 				console.log(passwordTest);
 				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
 					if (error) {
-						console.log("Error came :");
 						console.log(error);
 					} else {
 						customer_id = result.customer_id

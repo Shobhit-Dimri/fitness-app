@@ -24,7 +24,6 @@ var getAuthTokenService = (username, password, callback) => {
   }, (error, response, body) => {
 
     if (error) {
-      console.log("Error Shobhit: ".error);
       callback('There was an error connecting to the server');
     }
     else if (response.statusCode == 400) {
