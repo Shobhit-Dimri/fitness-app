@@ -168,6 +168,7 @@ app.post('/webhook/', (req, res) => {
 				console.log(passwordTest);
 				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
 					if (error) {
+						console.log("Error came :");
 						console.log(error);
 					} else {
 						customer_id = result.customer_id
