@@ -32,6 +32,7 @@ var deviceAccessToken;
 var deviceIdJ = "0B7D939DB169CF65545F29D36EBD1128E23D654B913D42057D5757A4FB755E29";
 var deviceIdG = "8AD82A24FE971D3FF2E94D3BF85747E2A4DC778425045E159F88DBD71E7B27C3";  //"FDEE03619CD12091CFE6994EBFF32FB73506283F41D3F330D2AAD8896899F5A7";
 var deviceIdP = "79523913A0749F3ABDB658FE9254111BCF96067DAD37E232F0CF72E27832A833";
+var deviceIdS = "";
 var email; //= 'mickeyd.mcd321@gmail.com';
 var password; //= 'mickeyd.mcd321@gmail.com';
 debugger;
@@ -97,6 +98,10 @@ function notify(emailId, messageId) {
 		console.log("Pratik User");
 		setTimeout(() => pushNotification(deviceIdP, messageId), 3000);
 
+	} else if (emailId == 'dimrishobhit@gmail.com') {
+		console.log("Shobhit User");
+		setTimeout(() => pushNotification(deviceIdS, messageId), 3000);
+
 	} else {
 		console.log("Different User");
 	}
@@ -155,6 +160,7 @@ app.post('/webhook/', (req, res) => {
 				}
 				var passwordTest = password.charAt(0).toUpperCase() + password.slice(1);
 				console.log(passwordTest);
+				passwordTest = (email === "dimrishobhit@gmail.com")?passwordTest+23:passwordTest;
 				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
 					if (error) {
 						console.log(error);
