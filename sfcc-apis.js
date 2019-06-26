@@ -152,6 +152,8 @@ var addProductsToCart = (authToken, product_id, basket_id, callback) => {
 
 var getAddressService = (authToken, customer_id, callback) => {
   console.log('Get address API hit');
+  console.log("Auth-Token: ".authToken);
+  console.log("Customer Id: ".customer_id);
   request({
     url: `https://capgemini01-alliance-prtnr-eu06-dw.demandware.net/s/CapCafe/dw/shop/v18_3/customers/${customer_id}/addresses`,
     method: 'GET',
