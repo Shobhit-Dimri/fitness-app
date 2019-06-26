@@ -1,16 +1,16 @@
 {
-  "name": "hero",
+  "name": "fitness-coach-poc",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fitness coach poc",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/Shobhit-Dimri/fitness-app.git"
   },
-  "author": "Pratik Bhardwaj",
+  "author": "Shobhit Dimri",
   "license": "ISC",
   "dependencies": {
     "actions-on-google": "^2.4.1",
@@ -28,5 +28,14 @@
     "uuid": "^2.0.3",
     "xml2js": "^0.4.19",
     "dateformat": "^3.0.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Shobhit-Dimri/fitness-app/issues"
+  },
+  "homepage": "https://github.com/Shobhit-Dimri/fitness-app#readme",
+  "keywords": [
+    "fitness",
+    "coach",
+    "poc"
+  ]
 }
