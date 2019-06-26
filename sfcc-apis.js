@@ -109,9 +109,9 @@ var createCartService = (authToken, callback) => {
 
 var addProductsToCart = (authToken, product_id, basket_id, callback) => {
   console.log('Add products API entered');
-  console.log("Auth Token: ".authToken);
-  console.log("Product Id: ".product_id);
-  console.log("Basket Id: ".basket_id);    
+  console.log("Auth Token: "+authToken);
+  console.log("Product Id: "+product_id);
+  console.log("Basket Id: "+basket_id);    
   var qty = 1.00;
   request({
     url: `https://capgemini01-alliance-prtnr-eu06-dw.demandware.net/s/CapCafe/dw/shop/v18_3/baskets/${basket_id}/items`,
