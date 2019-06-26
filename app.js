@@ -120,12 +120,13 @@ app.post('/webhook/', (req, res) => {
 	// 		res.send(messageData);	
 	// 	};
 
-	console.log(JSON.stringify(req.body));
+	//console.log(JSON.stringify(req.body));
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
 	var parameters = req.body.result.parameters;
 	var message = req.body.result.resolvedQuery;
+	console.log("***** Action Name ***** "+actionName);
 	switch (actionName) {
 
 		case 'check_sign_in': {
