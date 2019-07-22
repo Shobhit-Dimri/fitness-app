@@ -34,7 +34,6 @@ var deviceIdG = "8AD82A24FE971D3FF2E94D3BF85747E2A4DC778425045E159F88DBD71E7B27C
 var deviceIdP = "79523913A0749F3ABDB658FE9254111BCF96067DAD37E232F0CF72E27832A833";
 var deviceIdS = "79523913A0749F3ABDB658FE9254111BCF96067DAD37E232F0CF72E27832A833";
 var email; //= 'mickeyd.mcd321@gmail.com';
-var password; //= 'mickeyd.mcd321@gmail.com';
 debugger;
 
 
@@ -151,21 +150,23 @@ app.post('/webhook/', (req, res) => {
 
 		case 'shoes-in-stock': {
 			console.log("In shoes-in-stock");
+			let password = "";
 			if (isDefined(actionName)) {
 				var idtoken = req.body.originalRequest.data.user.idToken;
 				var decoded = jwtdecode(idtoken);
-				//console.log(decoded);
+
+				console.log(decoded);
 				if (decoded.iss == 'https://accounts.google.com') {
 					email = decoded.email;
-					password = decoded.email;
-					console.log(email + '   ' + password)
+				} else {
+					console.log(" Could not get the email details");
+					// TODO - Exception handeling
 				}
-				var passwordTest = password.charAt(0).toUpperCase() + password.slice(1);
-				var letterNumber = /^[0-9a-zA-Z]+$/;
-				let emailArray = passwordTest.split("@");
-				passwordTest = (email.match(letterNumber)) ?passwordTest:2+passwordTest;
-				console.log(passwordTest);
-				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
+				/* The password is the same as the email id. SFCC rules mandate a capital letter, numeric and special character as password requirements. Special character, @, is already present. Capital letter and numeric is appended through code.
+				*/
+				password = "A1" + email; // Append 'A1' to create password as per sfcc password rules.
+				console.log(password);
+				sfcc.getAuthTokenService(email, password, (error, result) => {
 					if (error) {
 						console.log(error);
 					} else {
