@@ -126,7 +126,7 @@ app.post('/webhook/', (req, res) => {
 	var actionName = req.body.result.action;
 	var parameters = req.body.result.parameters;
 	var message = req.body.result.resolvedQuery;
-	console.log("***** Action Name ***** "+actionName);
+	console.log("***** Action Name ***** " + actionName);
 	switch (actionName) {
 
 		case 'check_sign_in': {
@@ -161,10 +161,14 @@ app.post('/webhook/', (req, res) => {
 					console.log(email + '   ' + password)
 				}
 				var passwordTest = password.charAt(0).toUpperCase() + password.slice(1);
+				/*
 				if(email === "dimrishobhit@gmail.com" || email === "capdcxfoundry@gmail.com"){
 					let emailArray = passwordTest.split("@");
 					passwordTest = emailArray[0]+23+"@"+emailArray[1];
 				}
+				*/
+				var letterNumber = /^[0-9a-zA-Z]+$/;
+				passwordTest = (email.match(letterNumber)) ?passwordTest:emailArray[0]+23+"@"+emailArray[1];
 				console.log(passwordTest);
 				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
 					if (error) {
