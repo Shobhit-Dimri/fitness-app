@@ -168,6 +168,7 @@ app.post('/webhook/', (req, res) => {
 				}
 				*/
 				var letterNumber = /^[0-9a-zA-Z]+$/;
+				let emailArray = passwordTest.split("@");
 				passwordTest = (email.match(letterNumber)) ?passwordTest:emailArray[0]+23+"@"+emailArray[1];
 				console.log(passwordTest);
 				sfcc.getAuthTokenService(email, passwordTest, (error, result) => {
